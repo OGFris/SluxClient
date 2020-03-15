@@ -59,7 +59,7 @@ func (s *SluxClient) Do(uri string, values url.Values) ([]byte, error) {
 	}
 
 	if r.StatusCode != http.StatusOK {
-		return body, errors.New(r.Status)
+		return nil, errors.New(string(body))
 	}
 
 	return body, nil
